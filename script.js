@@ -1,39 +1,47 @@
-const inputBox = document.getElementById("input-box")
-const listContainer = document.getElementById("list-container")
+// Select the elements from the HTML
+const listContainer = document.getElementById('list-container');
+const inputBox = document.getElementById('input-box');
 
+// Function to add a new task
+function addTask() {
+    // Check if the input box is empty
+    if (inputBox.value === '') {
+        alert('Please Enter the Text'); // Alert the user if no text is entered
+    } else {
+        // Create a new list item (task)
+        const task = document.createElement('li');
+        task.textContent = inputBox.value; // Set the text of the task to the input value
+        listContainer.appendChild(task); // Add the new task to the task list
 
-function addTask(){
-  if(inputBox.value === ''){
-    alert("Please enter a task")
-  }
-  else{
-    let li = document.createElement("li")
-    li.innerHTML =  inputBox.value;
-    listContainer.appendChild(li);
-    let span = document.createElement("span");
-    span.innerHTML = "\u00d7";
-    li.appendChild(span);
-  }
-  inputBox.value = "";
-  saveDate();
+        // Create a span element for the delete button (×)
+        const span = document.createElement('span');
+        span.textContent = "\u00D7"; // Unicode character for '×'
+        task.appendChild(span); // Add the delete button to the task
+        span.style.right = '0px'; // Position the delete button
+    }
+    inputBox.value = ''; // Clear the input box
+    saveData(); // Save the updated task list to local storage
 }
 
-listContainer.addEventListener("click", function(e){
-  if(e.target.tagName === "LI"){
-    e.target.classList.toggle("checked");
-    saveDate();
-  }
-  else if(e.target.tagName === "SPAN"){
-    e.target.parentElement.remove();
-    saveDate();
-  }
-}, false);
+// Event listener for marking tasks as completed or deleting tasks
+listContainer.addEventListener('click', (e) => {
+    if (e.target.tagName === 'LI') {
+        e.target.classList.toggle("checked"); // Toggle the 'checked' class to mark/unmark task as completed
+        saveData(); // Save the updated task list to local storage
+    } else if (e.target.tagName === 'SPAN') {
+        e.target.parentElement.remove(); // Remove the task if the delete button is clicked
+        saveData(); // Save the updated task list to local storage
+    }
+});
 
-function saveDate(){
-  localStorage.setItem("data", listContainer.innerHTML);
+// Function to save the task list to local storage
+function saveData() {
+    localStorage.setItem("data", listContainer.innerHTML);
 }
 
-function showTask(){
-  listContainer.innerHTML = localStorage.getItem("data");
+// Function to load the task list from local storage when the page is loaded/reloaded
+function showTask() {
+    listContainer.innerHTML = localStorage.getItem("data");
 }
-showTask();
+
+showTask(); // Call the function to display the saved tasks on page load

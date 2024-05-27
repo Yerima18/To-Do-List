@@ -1,114 +1,161 @@
-*{
+/* Universal styles for the entire document */
+* {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins' , sans-serif;
   box-sizing: border-box;
-}
+  font-family: 'Poppins', sans-serif;
+  }
 
-.container{
+
+/* Styles for the container */
+.container {
   width: 100%;
   min-height: 100vh;
-  background: url(/images/digi.jpeg);
-  background-size: cover;
   padding: 10px;
 }
 
-.todo-app{
+/* Styles for the To-Do app */
+.todo-app {
   width: 100%;
   max-width: 540px;
-  background: whitesmoke;
-  margin: 100px auto 20px;
+  background: #fff;
+  margin: 150px auto 20px;
   padding: 40px 30px 70px;
-  border-radius: 10px;
+  border-radius: 50px;
+  box-shadow: 0px 0px 30px #afafaf;
 }
 
-.todo-app h2{
+/* Styles for the header */
+h2 {
   color: #002765;
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
+  font-size: 30px;
+  position: relative;
 }
 
-.todo-app h2 img{
-  width: 30px;
-  margin-left: 10px;
+/* Styles for the icon in the header */
+.todo-app h2 img {
+  position: absolute;
+  right: 0;
+  width: 40px;
+  margin-left: 20px;
 }
 
-.row{
+/* Styles for the input row */
+.row {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 25px;
   align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border: none;
+  outline: 3px groove #000;
+  outline-offset: 5px;
   border-radius: 30px;
   padding-left: 20px;
-  background: #edeef0;
+  margin-bottom: 25px;
+  box-shadow: 0px 0px 10px #5d5d5d;
 }
 
-input{
+/* Styles for the input box */
+.row input {
   flex: 1;
   border: none;
   outline: none;
-  background: transparent;
   padding: 10px;
-  font-weight: 14px;
+  background: transparent;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
-button{
+/* Placeholder styles for the input box */
+.row input::placeholder {
+  color: #1e008d;
+}
+
+/* Styles for the add button */
+.row button {
   border: none;
   outline: none;
-  padding: 16px 50px;
-  background: #ff5945;
+  padding: 16px 30px;
+  background: #26068f;
   color: #fff;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 600;
   cursor: pointer;
-  border-radius: 40px;
+  border-radius: 30px;
+  margin: 1px;
 }
 
-ul li{
+/* Styles for the task items */
+ul li {
   list-style: none;
-  font-size: 17px;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
   padding: 12px 8px 12px 50px;
   user-select: none;
   cursor: pointer;
   position: relative;
+  margin-block: 10px;
 }
 
+/* Styles for the bullet points of the task items */
 ul li::before {
   content: '';
   position: absolute;
-  height: 28px;
-  width: 28px;
+  height: 30px;
+  width: 30px;
   border-radius: 50%;
-  background-image: url(images/unchecked.png);
+  background: url(images/unchecked.png);
   background-size: cover;
   background-position: center;
-  top: 12px; /* Adjust this value to align the image vertically */
-  left: 8px; /* Adjust this value to align the image horizontally */
+  top: 12px;
+  left: 8px;
 }
 
-ul li.checked{
-  color: #555;
-  text-decoration: line-through;
+/* Styles for completed tasks */
+ul li.checked {
+  background: #3700a4;
+  color: #fff;
+  border-radius: 50px;
 }
 
-ul li.checked::before{
-  background-image: url(images/checked.png);
-
+/* Styles for the bullet points of completed tasks */
+ul li.checked::before {
+  background: url(images/checked.png);
+  background-size: cover;
 }
 
-ul li span{
+/* Styles for the delete button (×) */
+ul li span {
   position: absolute;
-  right: 0;
-  top: 5px;
-  width: 40px;
-  height: 40px;
+  top: 10px;
+  margin-right: 5px;
+  width: 30px;
+  height: 30px;
   font-size: 22px;
-  color: #555;
-  line-height: 40px;
+  color: #000;
+  line-height: 30px;
   text-align: center;
   border-radius: 50%;
 }
 
-ul li span:hover{
-  background: #edeef0;
+/* Styles for the delete button of completed tasks */
+ul li.checked span {
+  color: #ffffff;
+}
+
+/* Hover styles for the delete button of completed tasks */
+ul li.checked span:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* Hover styles for the delete button */
+ul li span:hover {
+  background: #000;
+  color: #fff;
 }

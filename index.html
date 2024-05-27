@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>To Do List web</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to the external CSS file for styling -->
 </head>
 <body>
-  <div class="container">
-    <div class="todo-app">
-      <h2>To Do List <img src="images/icon.png" alt="Icon"></h2>
-      <div class="row">
-        <input type="text" id="input-box" placeholder="Add your tasks">
-        <button onclick="addTask()">Add</button>
-      </div>
-      <ul id="list-container">
-        <!-- <li class="checked">Task 1</li>
-        <li>Task 2</li>
-        <li>Task 3</li> -->
-      </ul>
+    <div class="container">
+        <div class="todo-app">
+            <h2>To-Do List <img src="images/icon.png" alt="Icon"></h2> <!-- Application title with an icon -->
+
+            <div class="row">
+                <input type="text" id="input-box" placeholder="Add your tasks"> <!-- Input box for new tasks -->
+                <button onclick="addTask()">Add Task</button> <!-- Button to add new tasks -->
+            </div>
+
+            <ul id="list-container">
+                <!-- Task list will be dynamically populated here -->
+            </ul>
+        </div>
     </div>
-  </div>
-  <script src="script.js"></script>
+    <script src="script.js"></script> <!-- Link to the external JavaScript file for functionality -->
 </body>
 </html>
